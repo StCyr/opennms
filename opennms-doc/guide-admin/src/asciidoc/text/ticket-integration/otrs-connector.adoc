@@ -16,21 +16,22 @@ This connector is compatible with all versions of OTRS.
 
 Though, there are 2 implementations of the connector: 
 
-* org.opennms.netmgt.ticketer.otrs31.Otrs31TicketerPlugin for OTRS versions 3.1 and above.
-* org.opennms.netmgt.ticketer.otrs.OtrsTicketerPlugin for OTRS versions 3.0 and lower.
+* *org.opennms.netmgt.ticketer.otrs31.Otrs31TicketerPlugin* for OTRS versions 3.1 and above.
+* *org.opennms.netmgt.ticketer.otrs.OtrsTicketerPlugin* for OTRS versions 3.0 and lower.
 
 == Configuration
 
 Configuration of the OTRS connector occurs via the 'opennms.properties' and 'otrs.properties' files.
 
-The table below describes the various otrs connector related configuration parameters of the 'opennms.properties' file.
+The table below describes the configuration parameters of the 'opennms.properties' file related to the configuration +
+of OpenNMS' ticket integration.
 
 [options="header, autowidth"]
 |===
 | Parameter     | Description                | Required | Default value
 | `opennms.ticketer.plugin` | Defines the ticket integration connector to be used.  | required | `none`
 | `opennms.alarmTroubleTicketLinkTemplate`  | Defines how links to the ticketing systems will be constructed. |  | `none`
-| `opennms.alarmTroubleTicketEnabled`  |  | When set to `yes`, enables ticket integration. | `none`
+| `opennms.alarmTroubleTicketEnabled`  | When set to `true`, enables ticket integration. | optional | `false`
 |===
 
 The table below describes the various configuration parameters of the 'otrs.properties' file.
