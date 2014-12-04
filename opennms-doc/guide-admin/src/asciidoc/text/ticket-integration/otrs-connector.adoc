@@ -23,7 +23,31 @@ The table below describes the various configuration parameters of this file.
 [options="header, autowidth"]
 |===
 | Parameter     | Description                | Required | Default value
-| `myFirstParm` | my first long description  | required | `myDefault`
-| `myScndParm`  | my second long description | required | `myDefault`
+| `otrs.endpoint` | URI where OpenNMS should contact  | required | `http://localhost/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnector`
+| `otrs.username`  | username to use for authenticating on the OTRS endpoint. | required | `ticketer@localhost`
+| `otrs.password`  | password to use to authenticate `otrs.username` on the OTRS endpoint. | required | `1ticketer!`
+| `otrs.state`  |  | optional | `new`
+| `otrs.priority`  |  | optional | `3 normal`
+| `otrs.queue`  |  | optional | `Raw`
+| `otrs.defaultuser`  |  |  | `customer@localhost`
+| `otrs.ownerid`  | Specific for the 'OtrsTicketerPlugin' plugin |  | `1`
+| `otrs.lock`  |  Specific for the 'OtrsTicketerPlugin' plugin |  | `unlock`
+| `otrs.articlefrom`  | Specific for the 'OtrsTicketerPlugin' plugin |  | `customer`
+| `otrs.articletype`  |  |  | `note-external`
+| `otrs.articlesendertype`  |  |  | `agent`
+| `otrs.articlecontenttype`  |  |  | `text/plain; charset=ISO-8859-15`
+| `otrs.articlehistorycomment`  |  |  | `update by OpenNMS`
+| `otrs.articlehistorytype`  |  |  | `OwnerUpdate`
+| `otrs.validopenstateid`  |  |  | ``
+| `otrs.validclosedstateid`  |  |  | ``
+| `otrs.validcancelledstateid`  |  |  | ``
+| `otrs.openstateid`  |  |  | ``
+| `otrs.closedstateid`  |  |  | ``
+| `otrs.cancelledstateid`  |  |  | ``
+| `otrs.articleupdatesubject`  |  |  | `Ticket update by OpenNMS`
+| `otrs.ticketopenedmessage`  |  |  | `Ticket opened by OpenNMS`
+| `otrs.ticketclosedmessage`  |  |  | `Ticket closed by OpenNMS`
+| `otrs.ticketcancelledmessage`  |  |  | `Ticket cancelled by OpenNMS`
+| `otrs.ticketupdatedmessage`  |  |  | `Ticket updated by OpenNMS`
 |===
 
