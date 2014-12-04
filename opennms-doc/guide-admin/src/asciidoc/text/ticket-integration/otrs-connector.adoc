@@ -4,10 +4,26 @@
 
 The OTRS connector allows one to create and manage OTRS tickets from OpenNMS alarms.
 
-When integration is enabled, 3 new buttons get displayed on the "alarm details" pages ("Create ticket", "Update ticket", "Close ticket"), +
-and the alarm 'state is synchronized with the corresponding ticket 'state in OTRS (ie: ticket can be closed either from OTRS or openNMS, +
-its state will be reflected on the other side). Also, buttons are activated/deactivated accordingly. 
+When integration is enabled, 3 new buttons get displayed on the "alarm details" page: +
+"Create ticket", "Update ticket", "Close ticket". And, the alarm 'state is synchronized +
+with the corresponding ticket 'state in OTRS (ie: ticket can be closed either from OTRS +
+or openNMS, its state will be reflected on the other side).
+Also, buttons are activated/deactivated accordingly. 
 
 == Compatibility
 
 This connector is compatible with OTRS versions 3.1 and above.
+
+== Configuration
+
+Configuration of the OTRS connector occurs via the 'otrs.properties'.
+
+The table below describes the various configuration parameters of this file.
+
+[options="header, autowidth"]
+|===
+| Parameter     | Description                | Required | Default value
+| `myFirstParm` | my first long description  | required | `myDefault`
+| `myScndParm`  | my second long description | required | `myDefault`
+|===
+
