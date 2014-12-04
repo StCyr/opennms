@@ -29,10 +29,13 @@ The table below describes the configuration parameters of the 'opennms.propertie
 
 [options="header, autowidth"]
 |===
-| Parameter                                | Description                                                     | Required | Default value
-| `opennms.ticketer.plugin`                | Defines the ticket integration connector to be used.            | required | `none`
-| `opennms.alarmTroubleTicketLinkTemplate` | Defines how links to the ticketing systems will be constructed. | optional | `none`
-| `opennms.alarmTroubleTicketEnabled`      | When set to `true`, enables ticket integration.                 | optional | `false`
+| Parameter                                 | Description                                                     | Required | Default value
+| `opennms.ticketer.plugin`                 | Defines the ticket integration connector to be used. To use the
+                                              _OTRS_ ticket integration connector specify
+                                              `org.opennms.netmgt.ticketer.otrs31.Otrs31TicketerPlugin` or 
+                                              `org.opennms.netmgt.ticketer.otrs.OtrsTicketerPlugin`           | required | `none`
+| `opennms.alarmTroubleTicketLinkTemplate`  | Defines how links to the ticketing systems will be constructed. |          | `none`
+| `opennms.alarmTroubleTicketEnabled`       | When set to `true`, enables ticket integration.                 | optional | `false`
 |===
 
 The table below describes the various configuration parameters of the 'otrs.properties' file.
