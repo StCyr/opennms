@@ -1,69 +1,69 @@
 
 [[ticket-integration-otrs31connector]]
-= OTRS connector
+== OTRS connector
 
-The OTRS connector allows one to create and manage OTRS tickets from OpenNMS alarms.
+The _OTRS connector_ allows one to create and manage _OTRS_ tickets from _OpenNMS_ alarms.
 
-When integration is enabled, 3 new buttons get displayed on the "alarm details" page: +
-"Create ticket", "Update ticket", "Close ticket". And, the alarm 'state is synchronized +
-with the corresponding ticket 'state in OTRS (ie: ticket can be closed either from OTRS +
-or openNMS, its state will be reflected on the other side).
-Also, buttons are activated/deactivated accordingly. 
+When integration is enabled, three new buttons get displayed on the _Alarm Details_ page:
 
-== Compatibility
+* _Create ticket_: Create a ticket from this alarm instance in _OTRS_
+* _Update ticket_: Update the ticket status from an existing ticket in _OTRS_
+* _Close ticket_: Close a ticket based on this alarm instance in _OTRS_
 
-This connector is compatible with all versions of OTRS.
+The alarm state is synchronized with the corresponding ticket state in _OTRS_.
+A ticket can be closed either from _OTRS_ or _OpenNMS_, its state will be reflected on the other side.
+Also, buttons are activated/deactivated accordingly.
 
-Though, there are 2 implementations of the connector: 
+=== Compatibility
 
-* *org.opennms.netmgt.ticketer.otrs31.Otrs31TicketerPlugin* for OTRS versions 3.1 and above.
-* *org.opennms.netmgt.ticketer.otrs.OtrsTicketerPlugin* for OTRS versions 3.0 and lower.
+This connector is compatible with all versions of _OTRS_.
+Though, there are two implementations of the connector:
 
-== Configuration
+* `org.opennms.netmgt.ticketer.otrs31.Otrs31TicketerPlugin` for _OTRS 3.1_ and above.
+* `org.opennms.netmgt.ticketer.otrs.OtrsTicketerPlugin` for _OTRS 3.0_ and lower.
+
+=== Configuration
 
 Configuration of the OTRS connector occurs via the 'opennms.properties' and 'otrs.properties' files.
-
-The table below describes the configuration parameters of the 'opennms.properties' file related to the configuration +
-of OpenNMS' ticket integration.
+The table below describes the configuration parameters of the 'opennms.properties' file related to the configuration of OpenNMS' ticket integration.
 
 [options="header, autowidth"]
 |===
-| Parameter     | Description                | Required | Default value
-| `opennms.ticketer.plugin` | Defines the ticket integration connector to be used.  | required | `none`
-| `opennms.alarmTroubleTicketLinkTemplate`  | Defines how links to the ticketing systems will be constructed. |  | `none`
-| `opennms.alarmTroubleTicketEnabled`  | When set to `true`, enables ticket integration. | optional | `false`
+| Parameter                                | Description                                                     | Required | Default value
+| `opennms.ticketer.plugin`                | Defines the ticket integration connector to be used.            | required | `none`
+| `opennms.alarmTroubleTicketLinkTemplate` | Defines how links to the ticketing systems will be constructed. | optional | `none`
+| `opennms.alarmTroubleTicketEnabled`      | When set to `true`, enables ticket integration.                 | optional | `false`
 |===
 
 The table below describes the various configuration parameters of the 'otrs.properties' file.
 
 [options="header, autowidth"]
 |===
-| Parameter     | Description                | Required | Default value
-| `otrs.endpoint` | URI where OpenNMS should contact  | required | `http://localhost/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnector`
-| `otrs.username`  | username to use for authenticating on the OTRS endpoint. | required | `ticketer@localhost`
-| `otrs.password`  | password to use to authenticate `otrs.username` on the OTRS endpoint. | required | `1ticketer!`
-| `otrs.state`  |  | optional | `new`
-| `otrs.priority`  |  | optional | `3 normal`
-| `otrs.queue`  |  | optional | `Raw`
-| `otrs.defaultuser`  |  |  | `customer@localhost`
-| `otrs.ownerid`  | Specific for the 'OtrsTicketerPlugin' plugin |  | `1`
-| `otrs.lock`  |  Specific for the 'OtrsTicketerPlugin' plugin |  | `unlock`
-| `otrs.articlefrom`  | Specific for the 'OtrsTicketerPlugin' plugin |  | `customer`
-| `otrs.articletype`  |  |  | `note-external`
-| `otrs.articlesendertype`  |  |  | `agent`
-| `otrs.articlecontenttype`  |  |  | `text/plain; charset=ISO-8859-15`
-| `otrs.articlehistorycomment`  |  |  | `update by OpenNMS`
-| `otrs.articlehistorytype`  |  |  | `OwnerUpdate`
-| `otrs.validopenstateid`  |  |  | ``
-| `otrs.validclosedstateid`  |  |  | ``
-| `otrs.validcancelledstateid`  |  |  | ``
-| `otrs.openstateid`  |  |  | ``
-| `otrs.closedstateid`  |  |  | ``
-| `otrs.cancelledstateid`  |  |  | ``
-| `otrs.articleupdatesubject`  |  |  | `Ticket update by OpenNMS`
-| `otrs.ticketopenedmessage`  |  |  | `Ticket opened by OpenNMS`
-| `otrs.ticketclosedmessage`  |  |  | `Ticket closed by OpenNMS`
-| `otrs.ticketcancelledmessage`  |  |  | `Ticket cancelled by OpenNMS`
-| `otrs.ticketupdatedmessage`  |  |  | `Ticket updated by OpenNMS`
+| Parameter                     | Description                                                           | Required | Default value
+| `otrs.endpoint`               | URI where _OpenNMS_ should contact                                    | required | `http://localhost/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnector`
+| `otrs.username`               | Username to use for _OTRS_ endpoint authentication                    | required | `ticketer@localhost`
+| `otrs.password`               | Password to use for _OTRS_ endpoint authentication                    | required | `1ticketer!`
+| `otrs.state`                  |                                                                       | optional | `new`
+| `otrs.priority`               |                                                                       | optional | `3 normal`
+| `otrs.queue`                  |                                                                       | optional | `Raw`
+| `otrs.defaultuser`            |                                                                       |          | `customer@localhost`
+| `otrs.ownerid`                | Specific for the _OtrsTicketerPlugin_ plugin                          |          | `1`
+| `otrs.lock`                   | Specific for the _OtrsTicketerPlugin_ plugin                          |          | `unlock`
+| `otrs.articlefrom`            | Specific for the _OtrsTicketerPlugin_ plugin                          |          | `customer`
+| `otrs.articletype`            |                                                                       |          | `note-external`
+| `otrs.articlesendertype`      |                                                                       |          | `agent`
+| `otrs.articlecontenttype`     |                                                                       |          | `text/plain; charset=ISO-8859-15`
+| `otrs.articlehistorycomment`  |                                                                       |          | `update by OpenNMS`
+| `otrs.articlehistorytype`     |                                                                       |          | `OwnerUpdate`
+| `otrs.validopenstateid`       |                                                                       |          | ``
+| `otrs.validclosedstateid`     |                                                                       |          | ``
+| `otrs.validcancelledstateid`  |                                                                       |          | ``
+| `otrs.openstateid`            |                                                                       |          | ``
+| `otrs.closedstateid`          |                                                                       |          | ``
+| `otrs.cancelledstateid`       |                                                                       |          | ``
+| `otrs.articleupdatesubject`   |                                                                       |          | `Ticket update by OpenNMS`
+| `otrs.ticketopenedmessage`    |                                                                       |          | `Ticket opened by OpenNMS`
+| `otrs.ticketclosedmessage`    |                                                                       |          | `Ticket closed by OpenNMS`
+| `otrs.ticketcancelledmessage` |                                                                       |          | `Ticket cancelled by OpenNMS`
+| `otrs.ticketupdatedmessage`   |                                                                       |          | `Ticket updated by OpenNMS`
 |===
-

@@ -1,0 +1,10 @@
+
+[[ticketing-system-integration]]
+= Ticketing System Integration
+
+Working with a visual dashboard or getting notifications is good way to go.
+In the _OpenNMS_ platform gives the possibility to generate _Tickets_ from existing alarms.
+
+[[ticketing-integration-generic-workflow]]
+.Sample workflow for integration OpenNMS and Ticketing Systems
+image::ticket-integration/01_generic-workflow.png[]

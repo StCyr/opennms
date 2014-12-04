@@ -64,3 +64,7 @@ include::text/events.adoc[]
 
 // Provisioning guide
 include::text/provisioning.adoc[]
+
+// Ticketing System Integration
+include::text/ticket-integration/introduction.adoc[]
+include::text/ticket-integration/otrs-connector.adoc[]
