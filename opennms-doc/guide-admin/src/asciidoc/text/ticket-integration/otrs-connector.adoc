@@ -16,11 +16,10 @@ Also, buttons are activated/deactivated accordingly.
 
 === Compatibility
 
-This connector is compatible with all versions of _OTRS_.
-Though, there are two implementations of the connector:
+The connector documented here is implemented via the `org.opennms.netmgt.ticketer.otrs31.Otrs31TicketerPlugin` and is compatible with  _OTRS 3.1_ and above.
 
-* `org.opennms.netmgt.ticketer.otrs31.Otrs31TicketerPlugin` for _OTRS 3.1_ and above.
-* `org.opennms.netmgt.ticketer.otrs.OtrsTicketerPlugin` for _OTRS 3.0_ and lower.
+A previous implementation of this connector,  `org.opennms.netmgt.ticketer.otrs.OtrsTicketerPlugin`, +
+is compatible with _OTRS 3.0_ and lower. This implementation is documented on http://www.opennms.org/wiki/OTRS[the wiki]
 
 === Configuration
 
@@ -30,10 +29,9 @@ The table below describes the configuration parameters of the 'opennms.propertie
 [options="header, autowidth"]
 |===
 | Parameter                                 | Description                                                     | Required | Default value
-| `opennms.ticketer.plugin`                 | Defines the ticket integration connector to be used. To use the
-                                              _OTRS_ ticket integration connector specify
-                                              `org.opennms.netmgt.ticketer.otrs31.Otrs31TicketerPlugin` or 
-                                              `org.opennms.netmgt.ticketer.otrs.OtrsTicketerPlugin`           | required | `none`
+| `opennms.ticketer.plugin`                 | Defines the ticket integration connector to be used. To use 
+                                              this _OTRS_ ticket integration connector specify
+                                              `org.opennms.netmgt.ticketer.otrs31.Otrs31TicketerPlugin`       | required | `org.opennms.netmgt.ticketd.NullTicketerPlugin`
 | `opennms.alarmTroubleTicketLinkTemplate`  | Defines how links to the ticketing systems will be constructed. |          | `none`
 | `opennms.alarmTroubleTicketEnabled`       | When set to `true`, enables ticket integration.                 | optional | `false`
 |===
@@ -43,16 +41,16 @@ The table below describes the various configuration parameters of the 'otrs.prop
 [options="header, autowidth"]
 |===
 | Parameter                     | Description                                                           | Required | Default value
-| `otrs.endpoint`               | URI where _OpenNMS_ should contact                                    | required | `http://localhost/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnector`
+| `otrs.endpoint`               | URI where _OpenNMS_ should contact the _OTRS_ ticketing system.       | required | `http://localhost/otrs/nph-genericinterface.pl/Webservice/GenericTicketConnector`
 | `otrs.username`               | Username to use for _OTRS_ endpoint authentication                    | required | `ticketer@localhost`
 | `otrs.password`               | Password to use for _OTRS_ endpoint authentication                    | required | `1ticketer!`
 | `otrs.state`                  |                                                                       | optional | `new`
 | `otrs.priority`               |                                                                       | optional | `3 normal`
 | `otrs.queue`                  |                                                                       | optional | `Raw`
 | `otrs.defaultuser`            |                                                                       |          | `customer@localhost`
-| `otrs.ownerid`                | Specific for the _OtrsTicketerPlugin_ plugin                          |          | `1`
-| `otrs.lock`                   | Specific for the _OtrsTicketerPlugin_ plugin                          |          | `unlock`
-| `otrs.articlefrom`            | Specific for the _OtrsTicketerPlugin_ plugin                          |          | `customer`
+| `otrs.ownerid`                | Not used by this implementation.                                      |          | `1`
+| `otrs.lock`                   | Not used by this implementation.                                      |          | `unlock`
+| `otrs.articlefrom`            | Not used by this implementation.                                      |          | `customer`
 | `otrs.articletype`            |                                                                       |          | `note-external`
 | `otrs.articlesendertype`      |                                                                       |          | `agent`
 | `otrs.articlecontenttype`     |                                                                       |          | `text/plain; charset=ISO-8859-15`
